@@ -9,3 +9,16 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+*{
+    font-family: Poppins;
+}
+.card-header{
+    font-size: 2.5rem;
+
+}
+.card-body{
+    background-image: url(https://previews.123rf.com/images/vkulieva/vkulieva1602/vkulieva160200007/52452427-patr%C3%B3n-sin-fisuras-para-lista-de-tareas-fondo-universales.jpg);
+    min-height: 300px;
+    font-size: 1.5rem;
+
+}

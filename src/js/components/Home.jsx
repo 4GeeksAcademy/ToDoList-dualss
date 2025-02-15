@@ -1,26 +1,18 @@
 import React from "react";
+import Lista from "./Lista";
 
 //include images into your bundle
 import rigoImage from "../../img/rigo-baby.jpg";
 
+//Input de texto donde escribir las tareas que se agregan debajo en forma de lista
+//Coger el texto del input y crear un elemento de la lista cuando se pulsa enter
+//Cada elemento de la lista tendra un icono de eliminar (una X en hover)
+
 //create your first component
 const Home = () => {
 	return (
-		<div className="text-center">
-            
-
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+		<div className="text-center pt-5">
+			<Lista/>
 		</div>
 	);
 };
