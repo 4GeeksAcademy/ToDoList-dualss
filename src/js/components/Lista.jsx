@@ -1,14 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Lista = () => {
     const [inputValue, setInputValue] = useState('');
     const [tareas, setTareas] = useState([]);
+    const [mensaje, setMensaje] = useState('')
 
     const lapiz = () =>{ //Solo uso esto dos veces pero por ir acostumbrandome
         return (
             <i className="bi bi-pencil m-3" style={{color: '#0c4a5b' }}></i>
         )
     }
+
+    //Comprobacion de si hay o no tareas en nuestra lista
+    useEffect(() =>{
+        if (tareas.length === 0){
+            setMensaje('No tienes ninguna tarea pendiente');}
+            else{
+                setMensaje('Tareas pendientes:')
+            }
+    }, [tareas]);
+
     //Funcion para la introducir la tarea escribiendo en el input sin que se pueda dejar en blanco y enviar una tarea vacia
     const taskAdd = (event) => {
         if (event.key === 'Enter' && inputValue.trim() !== '') {
@@ -25,7 +36,7 @@ const Lista = () => {
             <div className="card">
                 <div className="card-header pb-3">
                     {lapiz()}
-                    <label className="me-2">Que tareas tenemos hoy?</label>
+                    <label className="me-2 mb-2">Que tareas tenemos hoy?</label>
                     {lapiz()}
                     <input
                         type="text"
@@ -37,6 +48,7 @@ const Lista = () => {
                 </div>
                 <div className="card-body">
                     <div className="row mt-3 justify-content-center">
+                        <h3>{mensaje}</h3>
                         <ul className="list-group list-group-flush col-12 col-sm-10 col-md8 p-2">
                             {tareas.map((tarea, index) => (
                                 <li className="list-group-item d-flex justify-content-between align-items-center bg-transparent" key={index}>
